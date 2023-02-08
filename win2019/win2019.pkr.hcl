@@ -1,8 +1,8 @@
 packer {
-  required_version = ">= 1.7.4"
+  required_version = ">= 1.8.5"
   required_plugins {
     vsphere = {
-      version = ">= v1.0.1"
+      version = ">= v1.1.1"
       source  = "github.com/hashicorp/vsphere"
     }
   }
@@ -41,20 +41,24 @@ variable "vm_version" {
   type = string
 }
 
+variable "vm_vmname" {
+  type = string
+}
+
 variable "vm_cpu" {
-  type = number
+  type = string
 }
 
 variable "vm_ram" {
-  type = number
+  type = string
 }
 
-variable "vm_library" {
+variable "vm_library_name" {
   type = string
 }
 
 variable "vm_disksize" {
-  type = number
+  type = string
 }
 
 variable "windows_admin" {
@@ -91,7 +95,7 @@ source "vsphere-iso" "windows" {
   RAM             = var.vm_ram
   RAM_reserve_all = false
   content_library_destination {
-    library = var.vm_library
+    library = var.vm_library_name
     ovf     = true
     destroy = true
   }
@@ -115,12 +119,12 @@ source "vsphere-iso" "windows" {
   notes = "Build date [ {{ isotime \"2006-01-02 15:04:05\" }} UTC ]"
   # Image deployment
   floppy_files = [
-    "scripts/windows/2019/autounattend.xml",
-    "scripts/windows/install-vmware-tools.cmd",
-    "scripts/windows/deploy-bginfo.ps1",
-    "scripts/windows/disable-network-discovery.cmd",
-    "scripts/windows/install-chocolatey.ps1",
-    "scripts/windows/configure-ansible.ps1"
+    "../scripts/windows/2019/autounattend.xml",
+    "../scripts/windows/install-vmware-tools.cmd",
+    "../scripts/windows/deploy-bginfo.ps1",
+    "../scripts/windows/disable-network-discovery.cmd",
+    "../scripts/windows/install-chocolatey.ps1",
+    "../scripts/windows/configure-ansible.ps1"
   ]
   communicator    = "winrm"
   winrm_username  = var.windows_admin
