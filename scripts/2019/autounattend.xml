@@ -180,4 +180,5 @@
             </UserAccounts>
         </component>
     </settings>
+    <cpi:offlineImage cpi:source="wim://ntapnas/downloads/win2019cd/sources/install.wim#Windows Server 2019 SERVERSTANDARD" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
