@@ -9,7 +9,7 @@ folder     = "<vcenter_folder>"
 datastore  = "<vcenter_datastore>"
 
 # Image build
-vm_version     = "15"
+vm_version = "15"
 
 # Networking
 server_network = "<vcenter_network>"
