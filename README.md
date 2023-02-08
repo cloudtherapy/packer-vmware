@@ -1,2 +1,2 @@
-# packer
-HashiCorp Packer - Automate image builds
+# packer-vmware
+HashiCorp Packer - Automate image builds in vSphere
